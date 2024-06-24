@@ -28,6 +28,10 @@ def translate(json_file, model, prompt, output_file):
         with open(json_file, "r", encoding="utf-8") as input_json:
             obj = json.load(input_json)
             for mo in obj:
+                if (len(mo.trim())==0):
+                    print(f"没有意义的key'{mo}',跳过")
+                    continue
+
                 if isinstance(obj[mo], dict):
                     if len(obj[mo]) == 0:
                         print(f"{mo} 字典项没有函数，跳过")
@@ -38,9 +42,10 @@ def translate(json_file, model, prompt, output_file):
                 if re.search(REG_EXP, mo.strip()):
                     print(f"{mo} 跳过")
                     continue
-                if mo.strip() in out:
-                    print(f"{mo} 已经翻译过，跳过")
-                    continue
+
+                # if mo.strip() in out:
+                #     print(f"{mo} 已经翻译过，跳过")
+                #     continue
 
                 to_translate = json.dumps(
                     {mo.strip(): {key: obj[mo][key] for key in obj[mo] if not re.search(REG_EXP, key)}},

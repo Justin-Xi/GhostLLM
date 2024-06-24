@@ -3,15 +3,11 @@
     "name": "ScheduledTrigger",
     "description": "调用 function 时，如果是定时触发，则输出对应这部分字段"
   },
-  "时间字段": {
-    "description": "所有时间字段，都需要是结构化的时间数据，具体数据格式以服务端容易处理的格式为准",
-    "name": "StructuredTimeField"
-  },
   "独立 Agent": {
-    "name": "IndependentAgent",
+    "name": "IndependentAIAgents",
     "description": "主 Agent 给独立 Agent 通过纯文本的自然语言描述下达需求，独立 Agent 处理完成后，将结果返回给主 Agent。",
     "用户数据搜索 Agent": {
-      "name": "UserDataSearchAgent",
+      "name": "UserDataSearchAIAgent",
       "description": "支持搜索字段表：",
       "in": {
         "搜索需求": {
@@ -61,7 +57,7 @@
       }
     },
     "网络搜索 Agent": {
-      "name": "WebSearchAgent",
+      "name": "WebSearchAIAgent",
       "description": "主 Agent 将搜索需求给到网络搜索 Agent，网络搜索 Agent 将搜索需求拆解为对一个或多个搜索渠道的单次或多次检索任务，给到系统进行检索，检索结果返回给网络搜索 Agent 进行总结，将结论返回给主 Agent。也可以直接将搜的网页给到主 Agent",
       "in": {
         "搜索需求": {
@@ -79,7 +75,7 @@
       }
     },
     "文本处理 Agent": {
-      "name": "TextProcessingAgent",
+      "name": "TextProcessingAIAgent",
       "description": "用于对一段纯文本进行处理（扩写、缩写、调整语气、翻译等）",
       "in": {
         "原文": {
@@ -485,12 +481,12 @@
       }
     },
     "将群聊保存到通讯录": {
-      "name": "SaveGroupChatToContacts",
-      "description": "将一个或多个群聊保存到通讯录",
+      "name": "SaveGroupToContacts",
+      "description": "将一个或多个群聊群组保存到通讯录",
       "in": {
         "群聊id": {
           "name": "GroupChatId",
-          "字段描述": "要保存到通讯录的群聊",
+          "字段描述": "要保存群组到通讯录的群聊",
           "数据格式": "允许多个值",
           "是否必填": "是"
         }
@@ -515,7 +511,7 @@
     "name": "InstantMessaging",
     "编辑会话": {
       "description": "对会话进行置顶、标记未读、静音、归档等操作",
-      "name": "EditConversation",
+      "name": "EditIMConversation",
       "in": {
         "会话 ID": {
           "name": "SessionId",
@@ -597,7 +593,7 @@
     },
     "置顶聊天记录/消息": {
       "description": "编辑 IM 历史聊天记录，可进行置顶",
-      "name": "PinChatRecord",
+      "name": "PinIMConversation",
       "in": {
         "消息 ID": {
           "name": "MessageId",
@@ -623,7 +619,7 @@
     },
     "删除聊天记录/消息": {
       "description": "删除 IM 历史聊天记录",
-      "name": "DeleteChatRecord",
+      "name": "DeleteIMConversation",
       "in": {
         "消息 ID": {
           "name": "MessageId",
@@ -732,7 +728,7 @@
     },
     "编辑草稿内容": {
       "description": "对一个邮件草稿里的内容进行编辑",
-      "name": "EditDraftContent",
+      "name": "EditEmailDraft",
       "in": {
         "邮件草稿id": {
           "name": "DraftId",
@@ -1078,7 +1074,7 @@
     },
     "编辑邮件": {
       "description": "对邮件或thread进行操作",
-      "name": "EditEmail",
+      "name": "EditEmailOrEmailThreadProperty",
       "in": {
         "邮件id": {
           "name": "EmailId",
@@ -1146,7 +1142,7 @@
     },
     "删除邮件": {
       "description": "删除一封邮件或一个thread",
-      "name": "DeleteEmail",
+      "name": "DeleteEmailOrEmailThread",
       "in": {
         "邮件id": {
           "name": "EmailId",
@@ -1171,8 +1167,8 @@
       }
     },
     "退订邮件": {
-      "": {
-        "name": "UnsubscribeEmail",
+      "name": "UnsubscribeEmail",
+      "in": {
         "邮件id": {
           "name": "EmailId",
           "字段描述": "要编辑的邮件",
@@ -1314,7 +1310,7 @@
     },
     "新建文件夹": {
       "description": "新建一个便签文件夹",
-      "name": "CreateNewFolder",
+      "name": "CreateNewNoteFolder",
       "in": {
         "文件夹名": {
           "name": "FolderName",
@@ -1756,7 +1752,7 @@
     },
     "新建文件夹": {
       "description": "新建一个待办文件夹",
-      "name": "CreateFolder",
+      "name": "CreateTodoFolder",
       "in": {
         "文件夹名": {
           "name": "FolderPath",
@@ -1947,9 +1943,9 @@
     }
   },
   "打车": {
-    "name": "RideHailing",
+    "name": "RideRequest",
     "下打车任务": {
-      "name": "CreateHailingTask",
+      "name": "MakeRideRequest",
       "in": {
         "出发地": {
           "name": "Origin",
@@ -2016,7 +2012,7 @@
       }
     },
     "取消订单": {
-      "name": "CancelOrder",
+      "name": "CancelRideRequest",
       "description": "支持取消未上车的打车订单",
       "in": {
         "订单 ID": {
@@ -2062,8 +2058,9 @@
     }
   },
   "外卖": {
-    "name": "Takeaway",
+    "name": "FoodDeliveryService",
     "查询餐厅": {
+      "name": "SearchRestaurants",
       "in": {
         "收货地址？": {
           "name": "DeliveryAddress",
@@ -2072,7 +2069,7 @@
           "是否必填": "是"
         },
         "搜索关键字": {
-          "name": "SearchKeywords",
+          "name": "SearchKeyword",
           "字段描述": "",
           "数据格式": "",
           "是否必填": "否"
@@ -2090,7 +2087,7 @@
           "是否必填": "否"
         },
         "优选美食": {
-          "name": "PreferredFood",
+          "name": "PreferredFoodOption",
           "字段描述": "是否是 uber eats 优选美食",
           "数据格式": "是/否",
           "是否必填": "否"
@@ -2114,19 +2111,19 @@
           "是否必填": "否"
         },
         "饮食选项": {
-          "name": "DietaryOptions",
+          "name": "DietaryOption",
           "字段描述": "",
           "数据格式": "素食、严格素食、无谷蛋白食品、伊斯兰清真菜\r\r支持多选",
           "是否必填": "否"
         },
         "搜索结果返回排序": {
-          "name": "SearchResultSortOrder",
+          "name": "SearchResultSort",
           "字段描述": "",
           "数据格式": "默认排序、高评分优先、派送时间短优先",
           "是否必填": "是"
         },
         "是否直接将搜索结果展示给用户": {
-          "name": "ShowSearchResultsDirectly",
+          "name": "DirectlyShowResultsToUser",
           "字段描述": "",
           "数据格式": "是/否",
           "是否必填": "是"
@@ -2134,7 +2131,7 @@
       },
       "out": {
         "数据": {
-          "name": "Data",
+          "name": "OutputData",
           "字段描述": "",
           "数据格式": "需要展示所有搜索到的数据，具体字段可能根据检索需求展示不同字段。\n\n数据 ID 为必须字段\n\n数据格式研发决定。",
           "是否必填": "是"
@@ -2142,6 +2139,7 @@
       }
     },
     "根据特定餐厅查询食物": {
+      "name": "SearchFoodByRestaurant",
       "in": {
         "收货地址": {
           "name": "DeliveryAddress",
@@ -2156,7 +2154,7 @@
           "是否必填": "是"
         },
         "是否直接将搜索结果展示给用户": {
-          "name": "ShowSearchResultsDirectly",
+          "name": "DirectlyShowResultsToUser",
           "字段描述": "",
           "数据格式": "是/否",
           "是否必填": "是"
@@ -2164,7 +2162,7 @@
       },
       "out": {
         "数据": {
-          "name": "Data",
+          "name": "OutputData",
           "字段描述": "",
           "数据格式": "需要展示所有搜索到的数据，具体字段可能根据检索需求展示不同字段。\n\n数据 ID 为必须字段\n\n数据格式研发决定。",
           "是否必填": "是"
@@ -2172,6 +2170,7 @@
       }
     },
     "新增下订单任务": {
+      "name": "MakeFoodDeliveryRequest",
       "in": {
         "餐厅": {
           "name": "Restaurant",
@@ -2216,7 +2215,7 @@
           "是否必填": "是"
         },
         "小费": {
-          "name": "Gratuity",
+          "name": "Tip",
           "字段描述": "",
           "数据格式": "",
           "是否必填": "是"
@@ -2236,35 +2235,30 @@
           "是否必填": "是"
         },
         "外卖任务 ID": {
-          "name": "TakeawayTaskId",
+          "name": "TaskID",
           "字段描述": "",
           "数据格式": "",
           "是否必填": "是"
         },
         "外卖订单 ID": {
-          "name": "TakeawayOrderId",
+          "name": "OrderID",
           "字段描述": "",
           "数据格式": "",
           "是否必填": "是"
-        },
-        "……": {
-          "name": "Others",
-          "字段描述": "",
-          "数据格式": "",
-          "是否必填": ""
         }
       }
     },
     "给指定订单小费": {
+      "name": "TipSpecificOrder",
       "in": {
         "订单 ID": {
-          "name": "OrderId",
+          "name": "OrderID",
           "字段描述": "",
           "数据格式": "",
           "是否必填": "是"
         },
         "小费": {
-          "name": "Gratuity",
+          "name": "Tip",
           "字段描述": "",
           "数据格式": "",
           "是否必填": "是"
@@ -2280,9 +2274,10 @@
       }
     },
     "给指定订单外卖员发消息": {
+      "name": "SendMessageToFoodDeliveryPerson",
       "in": {
         "订单 ID": {
-          "name": "OrderId",
+          "name": "OrderID",
           "字段描述": "",
           "数据格式": "",
           "是否必填": "是"
@@ -2307,7 +2302,7 @@
   "全局收藏": {
     "name": "GlobalFavorites",
     "对数据进行收藏": {
-      "name": "CollectData",
+      "name": "CollectDataToFavorites",
       "description": "支持用户从1Action应用内部或外部收藏数据，保存至1Action全局收藏夹",
       "in": {
         "收藏数据内容": {
