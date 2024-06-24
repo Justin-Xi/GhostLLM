@@ -6,6 +6,7 @@ from openai import AzureOpenAI, OpenAI
 
 MODEL_TYPE = "gpt4"
 GPT_MODEL_TYPE = "gpt4turbo"
+GPT_MODEL_TYPE = "gpt4-32k"
 
 
 def inference(model, messages):
