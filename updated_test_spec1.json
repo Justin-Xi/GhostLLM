@@ -1,0 +1,431 @@
+{
+  "role_description_and_general_introduction": "As a test engineer, your primary duty involves the generation of diverse test inputs, or directives, for a sophisticated language model-driven AI mobile application. The application translates these directives into articulate written responses. Strict conformity to 'General Requirement' and 'Directive Composition' protocols is essential for efficiently designing these directives.\n\n[General Requirement]\n1. Every directive must be in English (with its Chinese translation in brackets attached).\n2. Directives should be crafted in a conversation-like vernacular, akin to that used in voice recognition systems. This style eschews the use of punctuation and incorporates filler words such as \"um\" and \"ah\". It encourages a casual manner of speaking.",
+  "mandatory_requirement": "1. Please pay heed to these rectified guidelines when crafting pertinent test directives. This will ensure clarity and conformity in instruction generation for the application.\n2. No preamble is necessary.",
+  "title": {
+    "role_description_and_general_introduction": "[Your Role and Task Introduction]",
+    "composition": "[Directive Composition]",
+    "guideline": "[Directive Creation Guidelines]",
+    "few_shots": "[Examples]",
+    "mandatory_requirement": "[Note about What You Shall Generate]"
+  },
+  "tasks": [
+    {
+      "action": "CreateNewContact",
+      "description": "Create a new contact in the address book, including personal information and contact methods. All fields are optional, but one field is mandatory.",
+      "composition": "1. The contact information on the mobile includes the following fields: 'First name', 'Middle name', 'Last name', 'Caller picture', 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Birthday', 'Address', 'Company', 'Remarks', 'URL', and user-defined fields.\n2. All of them are optional fields.\n3. Among them, mobile number, email, iMessage, WhatsApp, Facebook Messenger, Microsoft Teams, Google Chat, Slack, URL, and custom fields all allow multiple entries.\n4. Name, avatar, birthday, company, and memo fields only allow one attribute.\n5. Please note that the fields should be string, but they should be in the correct format, for example, the mobile number is in the correct mobile number format, the email is in the correct email format.",
+      "guideline": "1. Generated directives are aimed at creating new contacts for the user.\n2. Please, based on your understanding of the actual situation, generate 20 user directives of various field combinations.\n3. Please generate 5 user instructions containing user-defined fields based on your knowledge of the actual situation."
+    },
+    {
+      "action": "find_contact 818",
+      "description": "find contact",
+      "composition": "1. The contact information on the mobile includes the following fields: 'First name', 'Middle name', 'Last name', 'Caller picture', 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Birthday', 'Address', 'Company', 'Remarks', 'URL', 'Contact Type', 'Contact Source', 'Star', 'Block', 'Common group chat', 'Last contact time', 'Creation time' and 'Contact tag'.\n2. All of them are optional fields.\n3. Among them, mobile number, email, iMessage, WhatsApp, Facebook Messenger, Microsoft Teams, Google Chat, Slack, Address, URL, Common group chat,  all allow multiple entries.\n4. Name, birthday, company, and Remarks only allow one attribute.\n5. Please note that the following fields should be bool:'Caller picture', 'Star', 'Block'. 'Contact Type' and 'Contact Source' should be Enumeration Types. The rest of the fields should be string, but they should be in the correct format, for example, the mobile number is in the correct mobile number format, the email is in the correct email format; 'Last contact time', 'Creation time' should be a time range including a starting and ending time.",
+      "guideline": "1. Generated directives are aimed at searching new contacts for the user.\n2. Please, based on your understanding of the actual situation, generate 20 user directives of various field combinations.\n3. Please output English Version all together first and then out put the Chinese Translation, Note that you do not need to put Serial numbers like \"1.\" in the beginning of the example, you also do not need other Delimiter such as\"-\" instead you give the out put data each for one line and Capital the first letter"
+    },
+    {
+      "action": "DeleteContact",
+      "description": "Delete one or more contacts from the address book",
+      "composition": "1. Deleting a contact includes the following fields: 'First name', 'Middle name', 'Last name', 'Caller picture', 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Birthday', 'Address', 'Company', 'Remarks', 'URL', 'Contact Type', 'Contact Source', 'Star', 'Block', 'Common group chat', 'Last contact time', 'Creation time' and 'Contact tag'.\n2. All of them are optional fields.\n3. Among them, mobile number, email, iMessage, WhatsApp, Facebook Messenger, Microsoft Teams, Google Chat, Slack, Address, URL, Common group chat,  all allow multiple entries.\n4. Name, birthday, company, and Remarks only allow one attribute.\n5. Please note that the following fields should be bool:'Caller picture', 'Star', 'Block'. 'Contact Type' and 'Contact Source' should be Enumeration Types. The rest of the fields should be string, but they should be in the correct format, for example, the mobile number is in the correct mobile number format, the email is in the correct email format; 'Last contact time', 'Creation time' should be a range of time having a starting and ending time.",
+      "guideline": "1. The purpose of generating a command is to delete a contact for the user.\n2. Please, based on your understanding of the actual situation, generate 20 user directives of various field combinations."
+    },
+    {
+      "action": "BlockContact",
+      "description": "Block one or some contact methods of a contact in the address book",
+      "composition": "1. Block a contact includes the following fields: 'First name', 'Middle name', 'Last name', 'Caller picture', 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Birthday', 'Address', 'Company', 'Remarks', 'URL', 'Contact Type', 'Contact Source', 'Star', 'Block', 'Common group chat', 'Last contact time', 'Creation time' and 'Contact tag'.\n2. All of them are optional fields.\n3. Among them, mobile number, email, iMessage, WhatsApp, Facebook Messenger, Microsoft Teams, Google Chat, Slack, Address, URL, Common group chat,  all allow multiple entries.\n4. Name, birthday, company, and Remarks only allow one attribute.\n5. Please note that the following fields should be bool:'Caller picture', 'Star', 'Block'. 'Contact Type' and 'Contact Source' should be Enumeration Types. The rest of the fields should be string, but they should be in the correct format, for example, the mobile number is in the correct mobile number format, the email is in the correct email format; 'Last contact time', 'Creation time' should be a range of time having a starting and ending time.",
+      "guideline": "1. The purpose of generating the command is to block the user's contacts.\n2. Please, based on your understanding of the actual situation, generate 20 user directives of various field combinations."
+    },
+    {
+      "action": "EditContactInfo",
+      "description": "Edit a contact's basic information, star status or contact methods",
+      "composition": "1. Contact information on your cell phone includes the following fields: \"First Name\", \"Middle Name\", \"Last Name\", \"Caller Picture\", \"Cell Phone Number\", \"Email\", \"iMessage\", \"WhatsApp\", \"Facebook Messenger\", \"Microsoft Teams\", \"Google Chat\", \" Slack\", \" Birthday\", \"Address\", \"Company\", \"Notes\", \"URL\", whether starred or not, whether hacked or not.\n2. Among the fields that can be edited are \"First Name\", \"Middle Name\", \"Last Name\", \"Caller Picture\", \"Mobile Number\", \"Email\", \"iMessage\", \"WhatsApp\", \"Facebook Messenger\", \"Microsoft Teams\", \"Google Chat\", \"Slack\", \"Birthday \", \"Address\", \"Company\", Notes\", \"URL\", \"Star Status\" .\n2. All of these are optional fields.\n3. where mobile number, email, iMessage, WhatsApp, Facebook Messenger, Microsoft Teams, Google Chat, Slack, URL, frequently used group chats, contact label, star status and custom fields allow multiple entries.\n4. Only one attribute is allowed for the Name, Avatar, Birthday, Company and Memo fields.\n5. please note that fields should be strings, but the correct formatting should be used. For example, the cell phone number should be in the correct cell phone number format, and the email address should be in the correct email address format.\n6. contact types need to be enumerated, e.g. address book contacts, organization contacts, group chats saved to address book\n7. the source of the contact needs to be enumerated, e.g. from cell phone address book, manually added, etc.\nRecent contact time and creation time need to have a time range, such as within a week, yesterday, the day before yesterday at 9 o'clock.\n8. Contacts can use preset tags, smart tags, etc.\n9. In this case it is not necessary to enter \"contact xxx\n10.Don't write \"add\"",
+      "guideline": "1. The purpose of generating commands is for the user to edit the contact\n2. Please, based on your understanding of the actual situation, generate 30 user directives of various field combinations.\n3.Don't write \"Contact xxx\", just write the name of the contact you want to change.\n4.Each generated sentence should be complete\n5.Don't write \"update xxx\"\n6.You don't have to write \"AI\" or \"assistant.\"\n7.Don't write \"add\"\naddress associated with whatsapp.\n9.Edit \"message\" means to change the cell phone number or email address associated with message.\n10.Edit \"Facebook Messenger\" means to change \"Facebook Messenger name or Facebook home link\".Edit \"Microsoft Teams\", \"Google Chat\", \" Slack\", means to change \"Microsoft Teams\", \"Google Chat\", \" Slack\", and its county official's account.\n11.Edit \"Microsoft Teams\", \"Google Chat\", \" Slack\", means to change \"Microsoft Teams\", \"Google Chat\", \" Slack\", and its county official's account.",
+      "few_shots": "remember to put my uncle's contact under starred \t记得把我叔叔的联系人放在星标下\nreplace my client's Google Chat with client123\t替换我的客户的GoogleChat为client123\nupdate my colleague's company name to XYZ Company\t把我同事的公司名更改为XYZ公司\nI need to have manager's Slack as manager123 \t我需要将经理的Slack设定为manager123\nah let's change friend John's picture to the one with the white shirt\t哈，我们更换朋友John的照片为那张穿白衬衫的照片\nlet's change the first name of my contact to James\t让我们把我的联系人的名字更改为James\num could you change my professor's Facebook Messenger to prof123\t呃，你可以更改我的教授的FacebookMessenger为prof123么\nI need to replace Tian's email with tian@email.com\t我需要替换Tian的邮箱为tian@email.com\ncould we change boss's company name to DEF Company\t我们能把老板的公司名更改为DEF公司么\nah remember to put my lawyer's contact under starred \t记得把我的律师的联系人放在星标下\nI need to change the birthday date for Amy to October 10 \t我需要更改Amy的生日日期为10月10日\nlet's change my friend Lily's picture to the one with the blue dress\t我们更改我的朋友Lily的照片为那张穿蓝色裙子的照片\ncould you change my colleague's middle name to Jane\t你能更改我的同事的中间名为Jane么\nChange Zhang San's WhatsApp cell phone number to 987293. 改一下张三的WhatsApp手机号为为987293"
+    },
+    {
+      "action": "AddContactInfo",
+      "description": "Add one or more basic information or contact methods for a saved contact",
+      "composition": "1. First, find a specific contact based on the following fields: 'First name', 'Middle name', 'Last name', 'Caller picture', 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Birthday', 'Address', 'Company', 'Remarks', 'URL', 'Contact Type', 'Contact Source', 'Star', 'Block', 'Common group chat', 'Last contact time', 'Creation time' and 'Contact tag'.\n2. Next, add additional information to the contact based on the following fields: 'Caller picture', 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Birthday', 'Address', 'Company', 'Remarks', 'URL', 'Contact Type', 'Contact Source', 'Star', 'Block', 'Common group chat', 'Last contact time', 'Creation time' and 'Contact tag'.\n3. All of them are optional fields.\n4. Among them, mobile number, email, iMessage, WhatsApp, Facebook Messenger, Microsoft Teams, Google Chat, Slack, Address, URL, Common group chat,  all allow multiple entries.\n5. Name, birthday, company, and Remarks only allow one attribute.\n6. Please note that the following fields should be bool:'Caller picture', 'Star', 'Block'. 'Contact Type' and 'Contact Source' should be Enumeration Types. The rest of the fields should be string, but they should be in the correct format, for example, the mobile number is in the correct mobile number format, the email is in the correct email format; 'Last contact time', 'Creation time' should be a range of time having a starting and ending time.",
+      "guideline": "1. The purpose of the generate command is to add contact information.\n2. Please note that you are adding contact information, not updating it.\n3. Please, based on your understanding of the actual situation, generate 20 user directives of various field combinations."
+    },
+    {
+      "action": "delete_info_from_existing_contact",
+      "description": "delete info from an existing contact",
+      "composition": "1. The contact information for a mobile device includes various fields: 'First name', 'Middle name', 'Last name', 'Caller picture', 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Birthday', 'Address', 'Company', 'Remarks', 'URL', 'Contact Type', 'Contact Source', 'Star', 'Block', 'Common group chat', 'Last contact time', 'Creation time' and 'Contact tag'.\n2. All of these fields are optional.\n3. Among them, mobile number, email, iMessage, WhatsApp, Facebook Messenger, Microsoft Teams, Google Chat, Slack, Address, URL, and Common group chat can all have multiple entries.\n4. The 'Name', 'Birthday', 'Company', and 'Remarks' fields should only contain a single entry.\n5. It should be kept in mind that the fields 'Caller picture', 'Star', 'Block' are of boolean type. 'Contact Type' and 'Contact Source' should utilise enumeration type. The majority of the fields should be strings but formatted correctly (for example, mobile number should adhere to a valid mobile number format, email should conform to a recognised email format). The 'Last contact time' and 'Creation time' fields should denote a time range with a definite beginning and end.\n6. Deleting contact information involves two parameters: \"The object of the deleted information\" and \"The field to be deleted\", both of which are required.\n7. \"The object of the deleted information\" refers to the contact whose information is being modified, ascertainable through one or more fields in the contact information.\n8. \"The field to be deleted\" could refer to one or more fields within the contact information.",
+      "guideline": "1. The generated instruction is designed to delete the contact information for the user\n2. According to your understanding of the actual situation, please generate 30 user instructions of various combinations."
+    },
+    {
+      "action": "share_contact",
+      "description": "share contact",
+      "composition": "1. The contact information stored in the mobile includes details such as 'First name', 'Middle name', 'Last name', 'Caller picture', 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Birthday', 'Address', 'Company', 'Remarks', 'URL', 'Contact Type', 'Contact Source', 'Star', 'Block', 'Common group chat', 'Last contact time', 'Creation time' and 'Contact tag'.\n2. Each of these fields are optional for a contact.\n3. Of all the fields, 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Address', 'URL', and 'Common group chat' can have multiple entries for each contact. \n4. The fields like 'Name', 'Birthday', 'Company', and 'Remarks' can have only one entry for each contact.\n5. It's important to note that the fields like 'Caller picture', 'Star', and 'Block' should have boolean value types. 'Contact Type' and 'Contact Source' should have Enumeration value types. The remaining fields should contain string values but they should be in the appropriate format (e.g., The mobile number field should contain a mobile number in the correct format, and the email field should contain an email address in the correct email format). The fields like 'Last contact time' and 'Creation time' should include a time range with a defined start and end point. \n6. Sharing a contact includes two parameters: 'Who to share with' and 'What to share'. Both parameters are required.\n7. 'Who to share with' refers to the contact you wish to share, and this is determined by one or more fields in the contact's information.\n8. 'What to share' can be one or more fields in the contact's information.",
+      "guideline": "1. The generated directives aim to share the contacts for users.\n2. Based on your understanding of real situations, please generate 30 user directives with various combinations.",
+      "few_shots": "1、把星标联系人的名字都分享给威廉斯\n2、帮我把最近联系时间是昨天的联系人的找出来，然后把他们的手机号和公司名称分享给丽萨"
+    },
+    {
+      "action": "SaveGroupToContacts",
+      "description": "Save one or more group chat groups to the address book",
+      "composition": "1. The directive \"Save the group chat to the contact list\" includes one parameter: \"the group chat to be saved\". \"Group chat\" refers to the group chat to be saved in the contact list. This parameter is mandatory and it can accept multiple values, meaning multiple group chats can be saved at once.\n2. The generated directive should be as colloquial as possible and should fit real-life scenarios. When mentioning the name of the group chat, please don't use quotation marks.\n3. The syntax of the generated directive should be as complex and varied as possible.",
+      "guideline": "The directives you create are intended to help users save one or multiple group chats to their contact list. Based on your understanding of real-world scenarios, generate 30 various combinations of user directives.",
+      "few_shots": "1、请把Yoga Class群聊保存到我的联系人\n2、帮我把群聊yyyy和Parents Association保存到我的通讯录\n3、把YoYo Class群聊保存到我的联系人，对了，还有群聊ttt也保存到我的联系人"
+    },
+    {
+      "action": "add_number_as_new_contact",
+      "description": "add a phone number as a new contact",
+      "composition": "1. Saving an unfamiliar contact into the address book involves three fields: \"Contact ID,\" \"Save Method,\" and \"Target Contact ID.\"\n2. Both \"Contact ID\" and \"Save Method\" are mandatory fields. The \"Target Contact ID\" is an optional field. However, when choosing to save to contacts, the \"Target Contact ID\" becomes a required field.\n3. The \"Save Method\" could either be creating a new contact or saving to an existing contact.",
+      "guideline": "1. The directives you create aim to save an unfamiliar contact to the address book.\n2. Please generate 30 user directives of various combinations based on your understanding of the actual situation."
+    },
+    {
+      "action": "merge_contact",
+      "description": "merge existing contacts",
+      "composition": "1. Contact information on cell phones includes the following fields: \"First Name\", \"Middle Name\", \"Last Name\", \"Caller Picture\", \"Cell Phone Number\", \"Email\", \"iMessage\", \"WhatsApp\", \"Facebook Messenger\", \"Microsoft Teams\", \"Google Chat\", \"Slack\", \"Birthday\", \"Address\", \"Company\", \"Notes\", \"URL\", starred or not, hacked or not.\n2. All of these are optional fields.\n3. where multiple entries are allowed for Mobile Number, Email, iMessage, WhatsApp, Facebook Messenger, Microsoft Teams, Google Chat, Slack, URL, Frequently Used Group Chat, Contact Label, Starred Status, and Custom Fields.\n4. only one attribute is allowed for the Name, Avatar, Birthday, Company and Memo fields.\n5. Please note that fields should be strings, but should use the correct formatting. For example, cell phone numbers should use the correct cell phone number format and email addresses should use the correct email address format.\n6. Contact types need to be enumerated, e.g. address book contacts, organization contacts, group chats saved to address book.\nThe source of the contact needs to be enumerated, e.g. from cell phone address book, manually added, etc.\nRecent contact time and creation time need to have a time range, such as within a week, yesterday, the day before yesterday at 9 o'clock. 8.\n8. Contacts can be tagged with preset tags, smart tags, etc. 9.\n9. In this case, there is no need to enter \"contact xxx\n10. where merging contacts requires two or more contact information\n11. the contact information that can be used to merge only includes name, avatar, birthday, company and memo fields",
+      "guideline": "1. Generated directives are aimed at merging two or more contacts into one for the user.\n2. Please, based on your understanding of the actual situation, generate 30 user directives of various field combinations.\n3.Merging contacts is done by combining the attributes of two contacts into one contact",
+      "few_shots": "1. Hey  can you help me merge my contacts named John Zhao and Jack Zong (嘿，你能帮我把名字叫John Zhao和Jack Zong的联系人合并吗)\t\t\t\t\t\t\n2. Can you merge the contacts named Emily Smith from my phone and email list (你可以把我手机和邮件列表中名字叫Emily Smith的联系人合并了吗)\t\t\t\t\t\t\n3. I'd like to merge my contacts with first name Chen and last name Li from my phone address book (我想把名字是Chen Li的手机地址簿里的联系人合并呢)\t\t\t\t\t\t\n4. can we merge my contacts \"Sophia Liang\" and \"Sophie Lee\" (AI，我们能把“Sophia Liang”和“Sophie Lee”这两个联系人合并吗)\t\t\t\t\t\t\n5. Hi, can you combine the contact \"Feng Jiao\" that I manually added and the \"Feng Xiao\" from my phone address book (嗨，你可以将我手动添加的\"Feng Jiao\"和手机通讯录中的\"Feng Xiao\"合并吗)\t\t\t\t\t\t\n6. I need to merge contacts named \"Ming Hai\" and \"Ming Hai Lee\" in my address book (我需要将地址誌中名为\"Ming Hai\"和\"Ming Hai Lee\"的联系人合并)\t\t\t\t\t\t\n7. Merge my contacts with first name Lily and last name Zhang on my phone and email list please (请合并我的手机和电邮列表中名字叫Lily和姓氏叫Zhang的联系人)\t\t\t\t\t\t\n8. Can we merge my manual addition contact \"Alice Liu\" and the one from my address book \"Alice Lin\" (我们能把我手动添加的联系人\"Alice Liu\"和我通讯录中的\"Alice Lin\"合并吗)"
+    },
+    {
+      "action": "EditIMConversation",
+      "description": "Perform operations such as topping, marking as unread, muting, archiving, etc. on the conversation",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "SendMessage",
+      "description": "Send a message to a specified contact",
+      "composition": "1. Break down every directive into discrete elements: primary instruction (content), one or more recipients (receivers), and optionally, the messaging application (app).\n2. Each directive must mandatorily include elements - [content] and [receivers].\n3. [Receivers] can refer to individuals as well as groups.\n4. Though incorporating the [app] isn't mandatory, permutations must be created to test directives absent a specified [app].\n5. Directives may specify a particular execution timing (time_to_do). For example, \"At 5 pm, message Tom and ask if he will go snowboarding tomorrow\", where the message needs to be sent at 5:00 PM.\n6. If time_to_do isn't designated, the directive should be executed instantly.\n7. Certain directives may delineate a location (where_to_do) for execution. For example, \"When I reach home, message Linda to check her airport arrival time as I might be able to collect her\", wherein the directive becomes operative when the user reaches home.\n8. If where_to_do is not provided, the directive should be executed irrespective of the user's present location.\n9. The textual matter in directives could denote the outcome of an action, such as \"Locate the opening lineup for the Bulls game yesterday online and forward it to [someone]\" or \"Create a narrative about a princess and a rose\". Diversity must be embraced in crafting such directives.\n10. Steer clear of using activation phrases like \"Hey Siri\" or \"Alexa\".\n11. Do not integrate email as an [app] option.\n12. [Receivers] may encompass either a single group or numerous groups.\n13. Message shall only send to others than \"myself\", do not generate directive to send message to myself, e.g. 'remind me blablabla' or 'find xxx and tell me'",
+      "guideline": "1. During the process of creating diverse directive groups, adhere to the following protocols and institute a Chinese header for each group reflecting its requirement.\n2. Compose 2 directives that explicitly include an [app].\n3. Develop 2 directives that refrain from mentioning an [app].\n4. Conjure up 2 directives that incorporate a [search action] and a specific [app].\n5. Fabricate 2 directives that weave in a [search action] but exclude an [app].\n6. Form 2 directives that involve an [ai generation action] and explicitly mention an [app].\n7. Assemble 2 directives that employ an [ai generation action] but abstain from including an [app].\n8. Construct 2 directives that explicitly mention a [time_to_do].\n9. Build 2 directives that solely specify a [where_to_do].\n10. Create one directive for sending messages to a single individual and one group.\n11. Design one directive for relay messages to multiple individuals and groups.\n12. Draft a comprehensive directive that respects the following provisions:\n  1. Embed a message that exceeds 100 words.\n  2. Utilize the third person when the directive orders the AI to convey your message to the recipient.\n  3. Specify the desire to transmit a message within the directive rather than at its inception.\n  4. Mimic a conversation with AI. Punctuation is superfluous.",
+      "prompt": "[Your Role and Task Introduction]\nAs a test engineer, your primary duty involves the generation of diverse test inputs, or directives, for a sophisticated language model-driven AI mobile application. The application translates these directives into articulate written responses. Strict conformity to 'General Requirement' and 'Directive Composition' protocols is essential for efficiently designing these directives.\n\n[General Requirement]\n1. Every directive must be in English (with its Chinese translation in brackets attached).\n2. Directives should be crafted in a conversation-like vernacular, akin to that used in voice recognition systems. This style eschews the use of punctuation and incorporates filler words such as \"um\" and \"ah\". It encourages a casual manner of speaking.\n\n[Directive Composition]\n1. Break down every directive into discrete elements: primary instruction (content), one or more recipients (receivers), and optionally, the messaging application (app).\n2. Each directive must mandatorily include elements - [content] and [receivers].\n3. [Receivers] can refer to individuals as well as groups.\n4. Though incorporating the [app] isn't mandatory, permutations must be created to test directives absent a specified [app].\n5. Directives may specify a particular execution timing (time_to_do). For example, \"At 5 pm, message Tom and ask if he will go snowboarding tomorrow\", where the message needs to be sent at 5:00 PM.\n6. If time_to_do isn't designated, the directive should be executed instantly.\n7. Certain directives may delineate a location (where_to_do) for execution. For example, \"When I reach home, message Linda to check her airport arrival time as I might be able to collect her\", wherein the directive becomes operative when the user reaches home.\n8. If where_to_do is not provided, the directive should be executed irrespective of the user's present location.\n9. The textual matter in directives could denote the outcome of an action, such as \"Locate the opening lineup for the Bulls game yesterday online and forward it to [someone]\" or \"Create a narrative about a princess and a rose\". Diversity must be embraced in crafting such directives.\n10. Steer clear of using activation phrases like \"Hey Siri\" or \"Alexa\".\n11. Do not integrate email as an [app] option.\n12. [Receivers] may encompass either a single group or numerous groups.\n\n[Directive Creation Guidelines]\n1. During the process of creating diverse directive groups, adhere to the following protocols and institute a Chinese header for each group reflecting its requirement.\n2. Compose 2 directives that explicitly include an [app].\n3. Develop 2 directives that refrain from mentioning an [app].\n4. Conjure up 2 directives that incorporate a [search action] and a specific [app].\n5. Fabricate 2 directives that weave in a [search action] but exclude an [app].\n6. Form 2 directives that involve an [ai generation action] and explicitly mention an [app].\n7. Assemble 2 directives that employ an [ai generation action] but abstain from including an [app].\n8. Construct 2 directives that explicitly mention a [time_to_do].\n9. Build 2 directives that solely specify a [where_to_do].\n10. Create one directive for sending messages to a single individual and one group.\n11. Design one directive for relay messages to multiple individuals and groups.\n12. Draft a comprehensive directive that respects the following provisions:\n  1. Embed a message that exceeds 100 words.\n  2. Utilize the third person when the directive orders the AI to convey your message to the recipient.\n  3. Specify the desire to transmit a message within the directive rather than at its inception.\n  4. Mimic a conversation with AI. Punctuation is superfluous.\n\n[Note about What You Shall Generate]\n1. Please pay heed to these rectified guidelines when crafting pertinent test directives. This will ensure clarity and conformity in instruction generation for the application.\n2. No preamble is necessary."
+    },
+    {
+      "action": "search_im_whatsapp",
+      "description": "search messages in whatsapp",
+      "few_shots": "",
+      "prompt": "[Your Role and Task Introduction]\nAs a test engineer, your primary duty involves the generation of diverse test inputs, or directives, for a sophisticated language model-driven AI mobile application. The application translates these directives into articulate written responses. Strict conformity to 'General Requirement' and 'Directive Composition' protocols is essential for efficiently designing these directives.\n\n[General Requirement]\n1. Every directive must be in English (with its Chinese translation in brackets attached).\n2. Directives should be crafted in a conversation-like vernacular, akin to that used in voice recognition systems. This style eschews the use of punctuation and incorporates filler words such as \"um\" and \"ah\". It encourages a casual manner of speaking.\n\n[Directive Composition]\nundefined\n\n[Directive Creation Guidelines]\nundefined\n\n[Note about What You Shall Generate]\n1. Please pay heed to these rectified guidelines when crafting pertinent test directives. This will ensure clarity and conformity in instruction generation for the application.\n2. No preamble is necessary.",
+      "composition": "1. The parameters to be included are: APP search for an IM message, group chat/private chat, corresponding conversation, sender, time message was sent, message data type, main body of the message, message length (only for text messages), whether the message has been read or not, whether there's a reply to the message or not, whether the message is pinned or not, whether it's favorited or not, and whether I am mentioned in the message or not.\n2. Decompose each directive into different elements: primary command (content), private chat or group chat, as well as mandatory examination of the application in use.\n3. Each directive must mandatorily include the application and search content.\n4. The content of the search can be vague or specific. For instance, 'Find out the number of messages that I did not respond to that Peter sent me over Whatsapp last weekend' is an example of being clear; 'Find the content related to electric vehicles that Zhang San chatted with me about on WhatsApp last week' is an example of being vague.\n5. Combinatorial creations are a must.\n6. The private chat could be a private chat with one person, or several people. You may view one group chat, or multiple group chats. This could be made vague or specific, or without specifying a sender.\n7. The command may specify the sender's sending time, e.g. to view messages from last week. The sending time can be vague, clear, or without a specified time.\n8. The data type of the message can be a picture or may not have a specific type.\n9. The main content of the message can be unclear, clear, or there may be no main body of the message.\n10. The search message content can specify length, e.g. find those messages exceeding one hundred characters. You also don't have to specify length.\n11. You can specify if the information to search is read or unread, or you don't have to specify.\n12. You can also specify if the message is replied to.\n13. You can specify if the message is pinned.\n14. You can specify if the message is favorited and if I am mentioned.",
+      "guideline": "1. Utilise the options provided in the directive composition to create a diverse set of directives for message-searching by mixing and matching the provided elements.\n2. During the testing process, based on your baseline knowledge, identify the various combinations you need to test. Arrange these combinations into groups, with each group containing three directives. \n3. Assign a secondary title to each group, which succinctly describes the principal characteristics of that group.\n3.1 Please provide a Chinese translation for each group title and include it in parenthesis."
+    },
+    {
+      "action": "PinIMConversation",
+      "description": "Edit IM history chat records and pin them",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "DeleteIMConversation",
+      "description": "Delete IM historical chat records",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "CreateEmailDraft",
+      "description": "Create an email draft by creating a new one, forwarding or replying",
+      "composition": "Creating a new draft email:\n1. Creating a new draft email includes the following fields: 'Affiliated Mail Accounts'.\n2. 'Affiliated Mail Accounts'are optional fields.\n3. 'Affiliated Mail Accounts' fields only allow one attribute.\n4. New emails must include recipients.\nForward or reply to the email:\n1. Forwarding or replying to an email includes the following fields：'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC' , 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' , 'Crystal ball' , 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id'. \n2. 2. All of them are optional fields.\n3. Among them, :'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC' , 'Crystal ball' , 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id' all allow multiple entries.\n4. 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' only allow one attribute.\n5. Please note that the following fields should be bool: 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' .\n6. 'Crystal ball' should be Enumeration Type which has \"Crystal Ball Unprocessed\", \"Crystal Ball Unprocessed\", \"No Crystal Ball\" three status. \n7. 'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC', 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id' should be string, but they should be in the correct format, for example, 'Received time' , 'Sent time' should be a time range.\n8. Note that \"CC\" and \"BCC\" stands for CarbonCopy and BlindCarbonCopy correspondingly.  'Email account' is the email account id and 'Folder' stands for folder id.\n9. Forwarded messages must include both the sender and the recipient, and replies to messages must include the recipient.",
+      "guideline": "1. Generated directives are aimed at creating, forwarding and replying to emailsl for the user.\n2. Please, based on your understanding of the actual situation, generate 20 user directives of various field combinations."
+    },
+    {
+      "action": "EditEmailDraft",
+      "description": "Edit the content of an email draft",
+      "composition": "1. First, find a specific email that includes the following fields：'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC' , 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' , 'Crystal ball' , 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id'. \n2. All of them are optional fields.\n3. Among them, :'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC' , 'Crystal ball' , 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id' all allow multiple entries.\n4. 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' only allow one attribute.\n5. Please note that the following fields should be bool: 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' .\n6. 'Crystal ball' should be Enumeration Type which has \"Crystal Ball Unprocessed\", \"Crystal Ball Unprocessed\", \"No Crystal Ball\" three status. \n7. 'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC', 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id' should be string, but they should be in the correct format, for example, 'Received time' , 'Sent time' should be a time range.\n8. Note that \"CC\" and \"BCC\" stands for CarbonCopy and BlindCarbonCopy correspondingly.  'Email account' is the email account id and 'Folder' stands for folder id.\n9. Second, updating draft content includes the following fields: 'Email ID', 'To: (email header)', 'Carbon Copy (for email)', 'Blind carbon copy (for email)', 'thematic', 'main text', 'Main text image', 'sign', 'attachment (email)'.\n10. 'Email ID' is required; 'To: (email header)', 'Carbon Copy (for email)', 'Blind carbon copy (for email)', 'thematic', 'main text', 'Main text image', 'sign', 'attachment (email)' are optional fields.\n11. 'Email ID', 'thematic', 'main text' and 'sign' fields only allow one attribute.\n12. 'To: (email header)', 'Carbon Copy (for email)', 'Blind carbon copy (for email)', 'Main text image', and 'attachment (email)' fields all allow multiple entries.\n13. Update the content of an email after finding a specific email.",
+      "guideline": "1. Generated directives are aimed at updating draft email content for the user.\n2. Please provide the name of the email.\n3. Please, based on your understanding of the actual situation, generate 20 user directives of various field combinations.",
+      "few_shots": "um look for an email sent from conference@email.com in my email jenny@email.com that was sent last Sunday and update the main text to Thank you for the invite. I shall consider."
+    },
+    {
+      "action": "ai_rewrite_email_draft",
+      "description": "rewrite email with ai assistant",
+      "composition": "1. The information for the email involves the following components: 'Email account', 'Folder', 'Email label', 'Sender', 'Recipient', 'CC', 'BCC', 'Read status', 'Replied status', 'Star status','Cancel subscription', 'Crystal ball', 'Received time', 'Sent time', 'Number of attachments', and 'Thread'.\n2. All of these components are optional fields.\n3. Among them, 'Email account', 'Folder', 'Email label', 'Sender', 'Recipient', 'CC', 'BCC', 'Crystal ball', 'Received time', 'Sent time', 'Number of attachments', and 'Thread id' all allow for multiple entries.\n4. 'Read status', 'Replied status', 'Star status', 'Cancel subscription' only support one attribute.\n5. Take note that the fields 'Read status', 'Replied status', 'Star status', 'Cancel subscription' should be set as boolean values.\n6. 'Crystal ball' should be set as Enumeration Type having the following three statuses: \"Crystal Ball Unprocessed\", \"Crystal Ball Processed\", \"No Crystal Ball\".\n7. 'Email account', 'Folder', 'Email label', 'Sender', 'Recipient', 'CC', 'BCC', 'Received time', 'Sent time', 'Number of attachments', and 'Thread id' should be specified in the correct string format.\n8. Be aware that \"CC\" and \"BCC\" are abbreviations for CarbonCopy and BlindCarbonCopy respectively.\n9. The AI rewrites of draft contents will contain two parameters: the “rewrite target\" and the \"rewrite method\".\n10. Both parameters are mandatory.\n11. The \"rewrite target\" refers to the draft email the user wants the AI to rewrite. It can be determined through one or multiple fields in the email information. Some fields will require your input, for example “Recipient\" should be written as a name, “Folder\" needs to be a specific folder name, and “Star status\" should indicate whether it's a starred email. This applies for the other fields as well.\n12. Make sure the \"rewrite target\" in the generated directives is clear. Strive to use multiple fields from the email information to describe the \"rewrite target\".\n13. There are various types of \"rewrite methods\", including making it longer, shorter, or changing the tone etc.",
+      "guideline": "1. The directives generated aim to have the AI rewrite draft content for the user.\n2. Based on your understanding of real situations, generate 30 user directives with various combinations."
+    },
+    {
+      "action": "delete_email_draft",
+      "description": "delete email draft",
+      "composition": "1. The email information entails the following fields: 'Email account', 'Folder', 'Email label', 'Sender', 'Recipient', 'CC', 'BCC', 'Read status', 'Replied status', 'Star status', 'Cancel subscription', 'Crystal ball', 'Received time', 'Sent time', 'Number of attachments', and 'Thread'. \n2. All of them are optional fields.\n3. Among these: 'Email account', 'Folder', 'Email label', 'Sender', 'Recipient', 'CC', 'BCC', 'Crystal ball', 'Received time', 'Sent time', 'Number of attachments' and 'Thread id', multiple entries are permissible.\n4. 'Read status', 'Replied status', 'Star status', 'Cancel subscription' can only have one attribute.\n5. The following fields shall be boolean: 'Read status', 'Replied status', 'Star status', 'Cancel subscription'.\n6. 'Crystal ball' must be an Enumeration Type with three statuses: \"Crystal Ball Unprocessed\", \"Crystal Ball Processed\", \"No Crystal Ball\". \n7. 'Email account', 'Folder', 'Email label', 'Sender', 'Recipient', 'CC', 'BCC', 'Received time', 'Sent time', 'Number of attachments' and 'Thread id' should be string entries, but they must adhere to a specific format.\n8. Please note that \"CC\" and \"BCC\" stand for Carbon Copy and Blind Carbon Copy respectively.\n9. The deletion of draft content includes two parameters: \"Draft to be deleted\" and \"Field to be deleted\". \n10. Both parameters are mandatory.\n11. \"Draft to be deleted\" refers to a particular email that the user wants to delete. This can be identified by a single or multiple fields in the email information. For some fields, you need to edit corresponding content, such as assigning a name to \"Recipient\" or a folder name to \"Folder\", specify whether it is a starred email for \"Star status\", others follow a similar pattern.\n12. \"Field to be deleted\" can have multiple values and can be any one or more of the following: \"Recipient\", \"CC\", \"BCC\", \"Subject\", \"Text Body\", \"Body Image\", \"Signature\", \"Attachment\".\n13. In the case of deleting \"Text Body\", quoted text from forwarded and replied emails is not included.\n14. Please ensure that the \"Draft to be deleted\" in the generated directives is explicit. Try to use multiple fields from the email information to describe the \"Draft to be deleted\".",
+      "guideline": "1. The directives that are to be generated aim to delete content fields in an email draft for users.\n2. Based on your understanding of the real scenarios, please generate 30 user directives with various combinations."
+    },
+    {
+      "action": "SendEmail",
+      "description": "Create an email draft by creating a new one, forwarding or replying",
+      "composition": "1. The following fields encompass email information: 'Email account', 'Folder', 'Email label', 'Sender', 'Recipient', 'CC', 'BCC', 'Read status', 'Replied status', 'Star status', 'Cancel subscription', 'Crystal ball', 'Received time', 'Sent time', 'Number of attachments', and 'Thread'.\n2. All listed fields are optional.\n3. The fields 'Email account', 'Folder', 'Email label', 'Sender', 'Recipient', 'CC', 'BCC', 'Crystal ball', 'Received time', 'Sent time', 'Number of attachments', and 'Thread id' all accept multiple inputs. \n4. Only one attribute is permitted for 'Read status', 'Replied status', 'Star status', and 'Cancel subscription'.\n5. The listed fields must have a Boolean value: 'Read status', 'Replied status', 'Star status', 'Cancel subscription'.\n6. 'Crystal ball' should be an Enumeration Type with three statuses: \"Crystal Ball Unprocessed\", \"Crystal Ball Processed\", and \"No Crystal Ball\".\n7. The fields 'Email account', 'Folder', 'Email label', 'Sender', 'Recipient', 'CC', 'BCC', 'Received time', 'Sent time', 'Number of attachments', and 'Thread id' should be rendered as strings, in the correct format. \n8. \"CC\" and \"BCC\" respectively stand for CarbonCopy and BlindCarbonCopy.  \n9. Sending an email encompasses three parameters: \"Draft email to be sent\", \"Time of sending\", and \"Remind if unreplied time\".\n10. \"Draft email to be sent\" is a mandatory field, while \"Sending time\" and \"Remind if unreplied time\" are optional.\n11. \"Draft email to be sent\" refers to the draft that the user wants to send to another by defining one or more fields from the email information. For some fields, you need to create related content when the generated user directive mentions it, e.g., 'Recipient' should specify a name, 'Folder' should include a folder name. 'Star status' should indicate if it's a starred email, other fields should follow regard. \n12. Both \"Time of sending\" and \"Remind if unreplied time\" are unique values, and their data formats are timestamps. \"Time of sending\" is when the email will be sent out, and \"Remind if unreplied time\" is when to remind if no reply is received.\n13. When the \"Draft email to be sent\" in the generated directive is not clear, multiple fields from the email information can be used to describe the \"Draft email to be sent\".",
+      "guideline": "1. Generated directives aim at sending an email for users, where you can specify the sending time and the unreplied reminder time.\n2. Based on your understanding of real situations, generate 30 user directives with various combinations.",
+      "few_shots": "1、找到我写给张三的邮件草稿，明天八点发送给他\n2、帮我把work主题下的最后一封邮件草稿在今晚九点这样发送出去，并且设置未回复的提醒时间为一个小时.\n3、把我写给张三的草稿邮件发送给他一下"
+    },
+    {
+      "action": "search_email",
+      "description": "search email",
+      "composition": "1. Searching a specific contact based on the following fields:'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC' , 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' , 'Crystal ball' , 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id'. \n2. All of them are optional fields.\n3. Among them, :'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC' , 'Crystal ball' , 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id' all allow multiple entries.\n4. 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' only allow one attribute.\n5. Please note that the following fields should be bool: 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' .\n6. 'Crystal ball' should be Enumeration Type which has \"Crystal Ball Unprocessed\", \"Crystal Ball Unprocessed\", \"No Crystal Ball\" three status. \n7. 'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC', 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id' should be string, but they should be in the correct format, for example, 'Received time' , 'Sent time' should be a time range.\n8. Note that \"CC\" and \"BCC\" stands for CarbonCopy and BlindCarbonCopy correspondingly.  'Email account' is the email account id and 'Folder' stands for folder id.\n9. Find emails including the ones user sent and the ones user received.",
+      "guideline": "1. Generated directives are aimed at searching emails for the user.\n2. Please, based on your understanding of the actual situation, generate 20 user directives of various field combinations.",
+      "few_shots": "locate an email on my account victor@email.com from the sender clients@email.com that was sent last week\nfind all emails sent from client@email.com in the last three days\nfind emails tagged with the VIP Email label and cc to support@email.com in my office folder"
+    },
+    {
+      "action": "get_email_thread",
+      "description": "get email thread",
+      "composition": "1. The information for an email directive includes the following fields: 'Email account', 'Folder', 'Email Label', 'Sender', 'Recipient', 'CC', 'BCC', 'Read status', 'Replied status', 'Star status', 'Cancel subscription', 'Crystal ball', 'Received time', 'Sent time', 'Number of attachments', and 'Thread'.\n2. All these fields are optional.\n3. The following fields allow multiple entries: 'Email account', 'Folder', 'Email Label', 'Sender', 'Recipient', 'CC', 'BCC', 'Crystal ball', 'Received time', 'Sent time', 'Number of attachments', and 'Thread id'.\n4. These fields only allow a single selection: 'Read status', 'Replied status', 'Star status', 'Cancel subscription'.\n5. Note that the following fields should be of bool type: 'Read status', 'Replied status', 'Star status', 'Cancel subscription'.\n6. 'Crystal ball' should be an Enumeration type with three statuses: \"Crystal Ball Unprocessed\", \"Crystal Ball Processed\", \"No Crystal Ball\".\n7. 'Email account', 'Folder', 'Email Label', 'Sender', 'Recipient', 'CC', 'BCC', 'Received time', 'Sent time', 'Number of attachments', and 'Thread id' should be strings, but they need to be in the correct format.\n8. Please note that \"CC\" and \"BCC\" stand for CarbonCopy and BlindCarbonCopy respectively. \n9. To obtain email details, there are two parameters: \"Email to get details of\" and \"Thread id\".\n10. \"Email to get details of\" is determined by one or more fields in the email information. For some fields, you need to edit the corresponding content, for example, \"Recipient\" should be an edited name, \"Folder\" should be an edited folder name, \"Star status\" should indicate whether it is a star-marked email, and similar for other fields.\n11. \"Thread id\" refers to the subject of the email for which details are required. You need to edit the content for this.\n12. Both \"Email to get details of\" and \"Thread id\" are unique identifiers.\n13. Both \"Email to get details of\" and \"Thread id\" are optional parameters.",
+      "guideline": "1. The directives you create are intended to acquire full details of a single email or an entire thread for the user. \n2. Based on your understanding of real situations, generate 30 user directives with various combinations."
+    },
+    {
+      "action": "download_email_attachment",
+      "description": "downlaod email attachment",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "DeleteEmailOrEmailThread",
+      "description": "Delete an email or a thread",
+      "composition": "1. The email information includes the following fields:'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC' , 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' , 'Crystal ball' , 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread'. \n2. All of them are optional fields.\n3. Among them, :'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC' , 'Crystal ball' , 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id' all allow multiple entries.\n4. 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' only allow one attribute.\n5. Please note that the following fields should be bool: 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' .\n6. 'Crystal ball' should be Enumeration Type which has \"Crystal Ball Unprocessed\", \"Crystal Ball Processed\", \"No Crystal Ball\" three status. \n7. 'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC', 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id' should be string, but they should be in the correct format.\n8. Note that \"CC\" and \"BCC\" stands for CarbonCopy and BlindCarbonCopy correspondingly.\n9.The email information includes the following fields: \"email ID\", \"thread id\".\n10.The thread id is the subject of the email discussion and requires you to edit the content\n11. email id, thread id,only allow one attribute to be entered. \n12. Please note that the fields should be strings, but the formatting should be correct email should use the correct email format.\n13.where the email id needs to be looked up via the email message field",
+      "guideline": "1. The purpose of generating instructions is to delete email  for users. \n2. Generate user instructions for 30 different combinations of fields based on your knowledge of the actual situation.\n3.the thread ID is the subject of the email discussion and requires you to edit the content.\n4.Please don't say \"thread id\", just the subject of the email.\n5.Don't bring \"\"",
+      "few_shots": "删除关于Quality Assurance Meeting的邮件\n我想删除提到Holiday Plans的邮件\n帮我把李四三天内发给我的邮件都删掉\n能帮我把已读的邮件删掉\n请帮我把工作文件夹中的邮件删一下\n可以删除有超过3个附件的邮件吗\n我想从项目文件夹中删除已读的邮件)\n7. can you delete all the emails in the spam folder (你能删除垃圾邮件文件夹中的所有邮件吗)\n8. try to delete the emails that have been replied to in the project teamwork folder (试着删除项目团队协作文件夹中已经被回复的邮件)\n9. could you help to delete the starred emails in my work account (你能帮助删除我工作账户中的星标邮件吗)\n10. I want to delete the email about the travel plan that I sent out yesterday (我想删除我昨天发出的关于旅行计划的邮件)"
+    },
+    {
+      "action": "update_email_property",
+      "description": "update email properties, e.g. unread/read",
+      "composition": "1. The email information includes the following fields:'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC' , 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' , 'Crystal ball' , 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread'. \n2. All of them are optional fields.\n3. Among them, :'Email account' , 'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC' , 'Crystal ball' , 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id' all allow multiple entries.\n4. 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' only allow one attribute.\n5. Please note that the following fields should be bool: 'Read status' , 'Replied status' , 'Star status' , 'Cancel subscription' .\n6. 'Crystal ball' should be Enumeration Type which has \"Crystal Ball Unprocessed\", \"Crystal Ball Processed\", \"No Crystal Ball\" three status. \n7'Folder' , 'Email label' , 'Sender','Recipient' , 'CC' , 'BCC', 'Received time' , 'Sent time' , 'Number of attachments' and 'Thread id' should be string, but they should be in the correct format.\n8. Note that \"CC\" and \"BCC\" stands for CarbonCopy and BlindCarbonCopy correspondingly.\n9. Editable e-mail messages include the following fields: E-mail ID, Subject ID, Starred, Favorites, Read Status, Move Folder, Report Spam,Block Sender, Mute。\n10. Only one attribute is allowed for the Email ID, Subject ID, Starred, Favorites, Read Status, Move Folder, Block Sender, Mute, and Subscription Management fields.\n11. Please note that the fields should be strings\n12.Editing an email is an action on an email or thread.\n13. the thread ID is the subject of the email discussion and requires you to edit the content.\n14.where the email id needs to be looked up via the email message field",
+      "guideline": "1. The purpose of generating instructions is to edit emails for users.\n2. Generate user instructions for 30 different combinations of fields based on your knowledge of the actual situation.\n the thread ID is the subject of the email discussion and requires you to edit the content.\n3.Don't bring \"\"\n4.thread id refers to the subject of the email, you need to use your imagination to edit it.\n5.Editable e-mail messages include the following fields: E-mail ID, Subject ID, Starred, Favorites, Read Status, Move Folder, Report Spam,Block Sender, Mute。\n7.",
+      "few_shots": "Mark my latest e-mail as spam.\t把我最新收到的那封邮件标成垃圾邮件\nMark as read the e-mail that Zhang San sent me yesterday.\t帮我把张三昨天给我发的邮件设为已读\nShow all emails with crystal ball status of unprocessed marked as read\t显示所有水晶球状态为未处理的邮件标为已读\nMove the email from May 21, 2:30pm to the work folder.\t5月21日下午两点三十分的邮件移动到工作文件夹\nMute emails with more than three attachments.\t把附件数为三个以上的邮件静音\nFavorite the file you cc'd to Lee.\t你帮我把抄送给李四的那个文件收藏\nBlock all e-mails about today's work.\t关于今日工作的邮件都帮我屏蔽掉"
+    },
+    {
+      "action": "UnsubscribeEmail",
+      "description": "退订邮件",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "CreateNewNote",
+      "description": "Create a new note in a folder",
+      "composition": "1. Do not incorporate punctuation since the directive derives from a voice command.\n2. Directives should order the application to produce a note.\n3. Construct the note creation directives with components such as: Note Content (compulsory), Folder (optional), Favourites (optional), Pin (optional).\n4. A directive can encompass the outcome of an accomplished task as the note's content— this is termed an [AI action]. Such tasks may comprise \"Assist me in crafting an xx plan\", \"Conduct an xx search online\", and other similar activities.",
+      "guideline": "1. Utilise the options provided in the directive composition to create a diverse set of directives for note-making by mixing and matching the provided elements.\n2. During the testing process, based on your baseline knowledge, identify the various combinations you need to test. Arrange these combinations into groups, with each group containing three directives. \n3. Assign a secondary title to each group, which succinctly describes the principal characteristics of that group.\n3.1 Please provide a Chinese translation for each group title and include it in parenthesis.",
+      "prompt": "[Your Role and Task Introduction]\nAs a test engineer, your primary duty involves the generation of diverse test inputs, or directives, for a sophisticated language model-driven AI mobile application. The application translates these directives into articulate written responses. Strict conformity to 'General Requirement' and 'Directive Composition' protocols is essential for efficiently designing these directives.\n\n[General Requirement]\n1. Every directive must be in English (with its Chinese translation in brackets attached).\n2. Directives should be crafted in a conversation-like vernacular, akin to that used in voice recognition systems. This style eschews the use of punctuation and incorporates filler words such as \"um\" and \"ah\". It encourages a casual manner of speaking.\n\n[Directive Composition]\n1. Provide directives for creating notes.\n2. Directives for creating note should include options for: 正文（必填）\t文件夹（选填）\t收藏（选填）\t置顶（选填）.\n\n[Directive Creation Guidelines]\n1. Using the options provided above, generate directives to create notes using five different combinations.\n2. Create a total of 15 combination groups, with three directives per group.\n3. Use a secondary title as a descriptive header for each of the groups mentioned above, highlighting the key features of that group.\n\n[Note about What You Shall Generate]\n1. Please pay heed to these rectified guidelines when crafting pertinent test directives. This will ensure clarity and conformity in instruction generation for the application.\n2. No preamble is necessary."
+    },
+    {
+      "action": "EditNote",
+      "description": "Edit a note's information and status",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "DeleteNote",
+      "description": "Delete a note",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "CreateNewNoteFolder",
+      "description": "Create a new note folder",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "CreateNewCalendar",
+      "description": "Create a new calendar",
+      "composition": "1. Provide directives for creating calendar entries.\n2. Directives for calendar entries should include options for: title (required), start time (required), end time (required), advance reminder time (optional), whether it is an all-day event (optional, defaults to no if unspecified), whether it is a recurring event (optional, defaults to no if unspecified), the account under which the calendar entry is created (optional, e.g., work account, personal account), calendar group (optional, e.g., family, soccer training), attendees (optional), location (optional), notes (optional), URL (optional), attachments (optional), and whether to save as a favorite (optional, defaults to no if unspecified).",
+      "guideline": "1. Using the options provided above, generate directives to create calendar entries using five different combinations.\n2. Create a total of 15 combination groups, with three instructions per group.\n3. Use a secondary title to categorize option groupings.\n4. Exclude reminders from consideration as a type of calendar entry and avoid creating any directives resembling a reminder.",
+      "prompt": "[Your Role and Task Introduction]\nAs a test engineer, your primary duty involves the generation of diverse test inputs, or directives, for a sophisticated language model-driven AI mobile application. The application translates these directives into articulate written responses. Strict conformity to 'General Requirement' and 'Directive Composition' protocols is essential for efficiently designing these directives.\n\n[General Requirement]\n1. Every directive must be in English (with its Chinese translation in brackets attached).\n2. Directives should be crafted in a conversation-like vernacular, akin to that used in voice recognition systems. This style eschews the use of punctuation and incorporates filler words such as \"um\" and \"ah\". It encourages a casual manner of speaking.\n\n[Directive Composition]\n1. Provide directives for creating calendar entries.\n2. Directives for calendar entries should include options for: title (required), start time (required), end time (required), advance reminder time (optional), whether it is an all-day event (optional, defaults to no if unspecified), whether it is a recurring event (optional, defaults to no if unspecified), the account under which the calendar entry is created (optional, e.g., work account, personal account), calendar group (optional, e.g., family, soccer training), attendees (optional), location (optional), notes (optional), URL (optional), attachments (optional), and whether to save as a favorite (optional, defaults to no if unspecified).\n\n[Directive Creation Guidelines]\n1. Using the options provided above, generate directives to create calendar entries using five different combinations.\n2. Create a total of 15 combination groups, with three instructions per group.\n3. Use a secondary title to categorize option groupings.\n4. Exclude reminders from consideration as a type of calendar entry and avoid creating any directives resembling a reminder.\n\n[Note about What You Shall Generate]\n1. Please pay heed to these rectified guidelines when crafting pertinent test directives. This will ensure clarity and conformity in instruction generation for the application.\n2. No preamble is necessary."
+    },
+    {
+      "action": "CreateNewSchedule",
+      "description": "Create a new schedule",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "EditSchedule",
+      "description": "Edit the schedule information",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "DeleteSchedule",
+      "description": "Delete a schedule",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "CreateNewToDo",
+      "description": "Create a new to-do under a certain folder",
+      "composition": "1. Give instructions for the creation of tasks in the to-do list.\n2. The instructions for the to-do tasks should include choices for: Title (required if a Note is not provided), Reminder Time (optional), Note (required if a Title is not given), Recurrence (optional), Recurrence Rule (needed if Recurrence is chosen, such as daily, weekly, monthly etc.), Folder (optional), Favorite (optional, default is no), Pin to Top (optional, default is no), Completed (optional, default is no).\n3. The Note could be a result of an action performed by the AI, for instance \"search xxx online\", \"draft a xxx\" etc.",
+      "guideline": "[Directive Creation Guidelines]\n1. Utilize the choices that were provided in 'Directive Composition' to generate a variety of directives for creating tasks on the todo list. Achieve this by combining these choices in different ways.\n2. For the testing process, use your in-depth understanding to determine various combinations of choices that you should test.\n3. Attach a secondary title to each group that will effectively describe the main characteristics of that group.\n3.1 Each group title must have a Chinese translation included in brackets.\n4. Generate three explicit directives that clearly define [Title], specify [Reminder Time], vaguely specify [Notes], and don't indicate [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], or [Completed].\n5. Craft three directives that are vague about [Title], clear about [Reminder Time] and [Notes], don't define [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], or [Completed] but explicitly define [Folder].\n6. Produce three directives that vaguely specify [Title], clearly specify [Reminder Time] and [Notes], clearly indicate [Recurrence], but don't define [Recurrence Rule], [Folder], [Favorite], [Pin to Top] or [Completed].\n7. Write three directives that vaguely specify [Title], clearly define [Reminder Time] and [Notes], clearly indicate [Recurrence], but don't define [Recurrence Rule], [Folder], [Favorite], [Pin to Top], or [Completed].\n8. Create three directives that vaguely indicate [Title], clearly indicate [Reminder Time] and [Notes], but don't specify [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], or [Completed].\n9. Carefully compile three directives, vague on [Title], clear on [Reminder Time], nondescript about [Notes], [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], or [Completed].\n10. Bring together three directives with a vague [Title], an unclear [Reminder Time], and no specific information about [Notes], [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], or [Completed].\n11. Craft six directives vaguely outlining [Title], without specifying [Reminder Time], [Notes], [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], or [Completed].\n12. Come up with four directives with a vague [Title], no indication of [Reminder Time] and to vaguely instruct on [Notes], without specifying [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], or [Completed].\n13. Formulate four vague directives on [Title] with unspecified [Reminder Time], vaguely indicating [Notes], and leaving [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], and [Completed] unspecified.\n14. Frame four directives with vague specification of [Title], no indication for [Reminder Time], but instructing AI to generate ambiguous [Notes], leaving [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], and [Completed] undefined.\n15. Write four directives vaguely indicating the [Title], with no specification for [Reminder Time], but instructing for a web search for vague [Notes], and not indicating [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], or [Completed].\n16. Produce four directives with a vague [Title], no indication for [Reminder Time], but instructing for a local search for vague [Notes], leaving [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], and [Completed] unspecified.\n17. Develop six directives vaguely specifying [Title], but clearly designating [Reminder Time], ambiguously indicating [Notes], and leaving [Recurrence], [Recurrence Rule], [Folder], [Favorite], [Pin to Top], and [Completed] unspecified.",
+      "prompt": "[Your Role and Task Introduction]\nAs a test engineer, your primary duty involves the generation of diverse test inputs, or directives, for a sophisticated language model-driven AI mobile application. The application translates these directives into articulate written responses. Strict conformity to 'General Requirement' and 'Directive Composition' protocols is essential for efficiently designing these directives.\n\n[General Requirement]\n1. Every directive must be in English (with its Chinese translation in brackets attached).\n2. Directives should be crafted in a conversation-like vernacular, akin to that used in voice recognition systems. This style eschews the use of punctuation and incorporates filler words such as \"um\" and \"ah\". It encourages a casual manner of speaking.\n\n[Directive Composition]\n1. Provide directives for creating to-do list items.\n2. Directives for to-do items should include options for: Title (required), Reminder Time (optional), Notes (optional), Recurrence (optional), Recurrence Rule (required if Recurrence is selected, such as daily, weekly, monthly, etc.), Folder (optional), Favorite (optional, default no), Pin to Top (optional, default no), Completed (optional, default no).\n\n[Directive Creation Guidelines]\n1. Using the options provided above, generate directives to create to-do list items using five different combinations.\n2. Create a total of 15 combination groups, with three directives per group.\n3. Use a secondary title as a descriptive header for each of the groups mentioned above, highlighting the key features of that group.\n4. To-do items are used to remind oneself, so do not create calendar entries.\n\n[Note about What You Shall Generate]\n1. Please pay heed to these rectified guidelines when crafting pertinent test directives. This will ensure clarity and conformity in instruction generation for the application.\n2. No preamble is necessary.",
+      "few_shots": "帮我新建一个去买猫粮的待办，我上一次买猫粮记录到便签中了你给我找一找然后写到备注里\n帮我新建一个今天下午9点的待办，内容是买猫粮，备注的内容是渴望家的猫粮，\n帮我新建一个10点的待办，内容是买猫粮，备注的内容是渴望家的猫粮\n帮我新建一个待办，内容是买猫粮。\n帮我新建一个待办，内容是买猫粮，直接去超市买就行"
+    },
+    {
+      "action": "EditTodo",
+      "description": "Edit the information and status of a to-do",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "DeleteTodo",
+      "description": "Delete a to-do",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "CreateTodoFolder",
+      "description": "Create a new to-do folder",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "CreateRecording",
+      "description": "Select a recording mode to start recording",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "LocationSearch",
+      "description": "Search for location information based on the user's natural language description",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "add_point_of_interest",
+      "description": "新增记录地点",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "modify_point_of_interest",
+      "description": "修改记录地点",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "delete_point_of_interest",
+      "description": "删除记录地点",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "GetRoute",
+      "description": "获取路线",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "MakeRideRequest",
+      "description": "打车",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "CancelRideRequest",
+      "description": "Supports cancellation of taxi orders without boarding",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "SendMessageToDriver",
+      "description": "给司机发消息",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "SearchRestaurants",
+      "description": "查询餐厅",
+      "composition": "",
+      "guideline": "",
+      "prompt": ""
+    },
+    {
+      "action": "search_foods",
+      "description": "查询食物",
+      "composition": "",
+      "guideline": "",
+      "prompt": ""
+    },
+    {
+      "action": "SearchFoodByRestaurant",
+      "description": "根据特定餐厅查询食物",
+      "composition": "",
+      "guideline": "",
+      "prompt": ""
+    },
+    {
+      "action": "MakeFoodDeliveryRequest",
+      "description": "新增下订单任务",
+      "composition": "",
+      "guideline": "",
+      "prompt": ""
+    },
+    {
+      "action": "TipSpecificOrder",
+      "description": "给指定订单小费",
+      "composition": "",
+      "guideline": "",
+      "prompt": ""
+    },
+    {
+      "action": "SendMessageToFoodDeliveryPerson",
+      "description": "给外卖员发消息",
+      "composition": "",
+      "guideline": "",
+      "prompt": ""
+    },
+    {
+      "action": "UserDataSearchAIAgent",
+      "description": "Supported search field table:",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "WebSearchAIAgent",
+      "description": "The main AI agent gives the search requirements to the web search AI agent; the web search AI agent breaks down the search requirements into single or multiple search tasks for one or more search channels, and gives it to the system for retrieval. The search results are summarized by the web search AI agent, and the conclusions are given back to the main AI agent. Alternatively, the web pages found can be given directly the main AI agent.",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "TextProcessingAIAgent",
+      "description": "Used to process a piece of plain text (abbreviations, tone adjustment, translation, etc.)",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "SendDraft",
+      "description": "Send a draft email",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "ForwardEmail",
+      "description": "Create an email draft by creating a new one, forwarding or replying",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "ReplyEmail",
+      "description": "Create an email draft by creating a new one, forwarding or replying",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "EditEmailOrEmailThreadProperty",
+      "description": "Perform operations on an email or thread",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "CollectDataToFavorites",
+      "description": "Support users to collect data from inside or outside the 1Action application and save it to the 1Action global favorites",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "StarFavoritesData",
+      "description": "Locate specific favorites based on the information provided by the user and add stars",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "ArchiveFavoritesData",
+      "description": "Locate specific collection data and perform archiving operations based on the information provided by the user",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "DeleteFavoritesData",
+      "description": "Locate specific collection data and delete it based on the information provided by the user",
+      "composition": "",
+      "guideline": ""
+    },
+    {
+      "action": "AddAlarm",
+      "description": "Add an alarm for the user",
+      "composition": "",
+      "guideline": ""
+    }
+  ]
+}

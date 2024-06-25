@@ -1,0 +1,171 @@
+我给你两个json文件，第一个table_data_with_name.json是对模块、函数以及其参数的描述，第一级的key对应模块，第二级key是函数名，第三级往下表示参数，输入(in)还是输出(out*)，
+第二个test_spec.json是一个对于task有哪些任务的总结，你的任务是将table_data_with_name.json里面的第二级函数名里面的name和test_spec.json里面的action所代表的字符串进行比较，
+如果test_spec的action里面有decription_English.json里面的name，那么将table_data_with_name.json里面的description字段的翻译成英文后替换原有test_spec里面的description字段，其他部分不做改动。
+如果test_spec里面没有table_data_with_name.json里面的name，那么在对应位置在test_spec里面新增该action。如：table_data_with_name.json中有"拉黑联系人": {
+      "name": "BlockContact",
+      "description": "将通讯录中某个联系人的一个或部分联系方式拉黑",
+      "in": {
+        "联系人id": {
+          "name": "ContactId",
+          "字段描述": "要拉黑的联系人",
+          "数据格式": "唯一值",
+          "是否必填": "是"
+        },
+        "联系方式": {
+          "name": "ContactMethod",
+          "字段描述": "要拉黑的联系方式",
+          "数据格式": "允许多个",
+          "是否必填": "否"
+        }
+      },
+      "out": {
+        "处理结果": {
+          "name": "Result",
+          "字段描述": "",
+          "数据格式": "成功/失败\n\n失败需要反馈失败原因",
+          "是否必填": "是"
+        }
+      }
+    },但是test_spec没有BlockContact则在在test.spec中加入{
+      "action": "BlockContact",
+      "description": "Block one or some of the contact information of a contact in the address book",
+      "composition": "",
+      "guideline": ""
+    },到相对应的位置上面，其中composition和guideline默认为""
+AI这个词请保留大小写，不要写成Ai.
+
+【举例】
+输入：
+"table_data_with_name.json": "",
+{
+  "通讯录": {
+    "name": "Contacts",
+    "新建联系人": {
+      "description": "在通讯录里创建一个新的联系人，并为联系人添加个人信息和联系方式。所有字段都非必填，但是需要有至少一个字段.",
+      "name": "CreateNewContact",
+      "in": {
+        "First name": {
+          "name": "FirstName",
+          "字段描述": "通讯录联系人的first name",
+          "数据格式": "字符串，值唯一",
+          "是否必填": "否"
+        },
+        "Middle name": {
+          "name": "MiddleName",
+          "字段描述": "通讯录联系人的middle name",
+          "数据格式": "字符串，值唯一",
+          "是否必填": "否"
+        },
+        "Last name": {
+         "name":"LastName",
+          "字段描述": "通讯录联系人的last name",
+          "数据格式": "字符串，值唯一",
+          "是否必填": "否"
+        },
+        "联系人头像": {
+          "name": "Avatar",
+          "字段描述": "通讯录联系人的头像图片",
+          "数据格式": "图片，值唯一",
+          "是否必填": "否"
+        }
+      },
+      "out": {
+        "处理结果": {
+          "name": "Result",
+          "字段描述": "",
+          "数据格式": "成功/失败\n\n失败需要反馈失败原因",
+          "是否必填": "是"
+        },
+        "联系人 ID": {
+          "result": "ContactId",
+          "字段描述": "",
+          "数据格式": "",
+          "是否必填": "是"
+        }
+      }
+}
+
+"test_spec.json": "",
+"tasks": [
+    {
+      "action": "CreateNewContact",
+      "description": "创建联系人",
+      "composition": "1. The contact information on the mobile includes the following fields: 'First name', 'Middle name', 'Last name', 'Caller picture', 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Birthday', 'Address', 'Company', 'Remarks', 'URL', and user-defined fields.\n2. All of them are optional fields.\n3. Among them, mobile number, email, iMessage, WhatsApp, Facebook Messenger, Microsoft Teams, Google Chat, Slack, URL, and custom fields all allow multiple entries.\n4. Name, avatar, birthday, company, and memo fields only allow one attribute.\n5. Please note that the fields should be string, but they should be in the correct format, for example, the mobile number is in the correct mobile number format, the email is in the correct email format.",
+      "guideline": "1. Generated directives are aimed at creating new contacts for the user.\n2. Please, based on your understanding of the actual situation, generate 20 user directives of various field combinations.\n3. Please generate 5 user instructions containing user-defined fields based on your knowledge of the actual situation."
+    },
+返回:
+"tasks": [
+    {
+      "action": "CreateNewContact",
+      "description": "Create a new contact in the address book and add personal information and contact information for the contact. All fields are optional, but at least one field is required.",
+      "composition": "1. The contact information on the mobile includes the following fields: 'First name', 'Middle name', 'Last name', 'Caller picture', 'Mobile number', 'Email', 'iMessage', 'WhatsApp', 'Facebook Messenger', 'Microsoft Teams', 'Google Chat', 'Slack', 'Birthday', 'Address', 'Company', 'Remarks', 'URL', and user-defined fields.\n2. All of them are optional fields.\n3. Among them, mobile number, email, iMessage, WhatsApp, Facebook Messenger, Microsoft Teams, Google Chat, Slack, URL, and custom fields all allow multiple entries.\n4. Name, avatar, birthday, company, and memo fields only allow one attribute.\n5. Please note that the fields should be string, but they should be in the correct format, for example, the mobile number is in the correct mobile number format, the email is in the correct email format.",
+      "guideline": "1. Generated directives are aimed at creating new contacts for the user.\n2. Please, based on your understanding of the actual situation, generate 20 user directives of various field combinations.\n3. Please generate 5 user instructions containing user-defined fields based on your knowledge of the actual situation."
+    },
+
+【举例】
+
+输入：
+"table_data_with_name.json": "",
+{
+  "通讯录": {
+    "name": "Contacts",
+    "新建联系人": {
+      "description": "在通讯录里创建一个新的联系人，并为联系人添加个人信息和联系方式。所有字段都非必填，但是需要有至少一个字段.",
+      "name": "CreateNewContact",
+      "in": {
+        "First name": {
+          "name": "FirstName",
+          "字段描述": "通讯录联系人的first name",
+          "数据格式": "字符串，值唯一",
+          "是否必填": "否"
+        },
+        "Middle name": {
+          "name": "MiddleName",
+          "字段描述": "通讯录联系人的middle name",
+          "数据格式": "字符串，值唯一",
+          "是否必填": "否"
+        },
+        "Last name": {
+         "name":"LastName",
+          "字段描述": "通讯录联系人的last name",
+          "数据格式": "字符串，值唯一",
+          "是否必填": "否"
+        },
+        "联系人头像": {
+          "name": "Avatar",
+          "字段描述": "通讯录联系人的头像图片",
+          "数据格式": "图片，值唯一",
+          "是否必填": "否"
+        }
+      },
+      "out": {
+        "处理结果": {
+          "name": "Result",
+          "字段描述": "",
+          "数据格式": "成功/失败\n\n失败需要反馈失败原因",
+          "是否必填": "是"
+        },
+        "联系人 ID": {
+          "result": "ContactId",
+          "字段描述": "",
+          "数据格式": "",
+          "是否必填": "是"
+        }
+      }
+}
+test_spec.json:
+"tasks": [
+    {},
+
+返回:
+"test_spec.json": "",
+"tasks": [
+    {
+      "action": "CreateNewContact",
+      "description": "Create a new contact in the address book and add personal information and contact information for the contact. All fields are optional, but at least one field is required.",
+      "composition": "",
+       "guideline": ""
+    },
+
+
+返回内容不要包括总结、你的思考，请只返回JSON。请等待我的输入
